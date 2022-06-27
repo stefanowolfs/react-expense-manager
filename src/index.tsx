@@ -1,15 +1,19 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import { Provider } from "react-redux";
 
-import App from "./app/App";
-import reportWebVitals from "./app/reportWebVitals";
+import Router from "./routes";
+import reportWebVitals from "./reportWebVitals";
+import store from "./core/store/configureStore";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <Router />
+    </Provider>
   </React.StrictMode>
 );
 

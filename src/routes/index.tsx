@@ -1,10 +1,20 @@
 import React from "react";
-import { BrowserRouter, Routes, Route, NavLink } from "react-router-dom";
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  NavLink,
+  Navigate,
+} from "react-router-dom";
 
 import Login from "../pages/Login";
 import Home from "../pages/Home";
 import NoMatch from "../pages/NoMatch";
+
 import { fakeAuth } from "../infra/adapter/loginAPI";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "../core/store/configureStore";
+import { getToken, setToken } from "../core/store/ducks/authSlice";
 
 interface NavigationProps {
   token: string;
@@ -12,15 +22,15 @@ interface NavigationProps {
 }
 
 export default function Router() {
-  const [token, setToken] = React.useState<string>(null);
+  const dispatch = useDispatch();
+  const token = useSelector((state: RootState) => state.auth.token);
 
   const handleLogin = async () => {
-    const token: string = await fakeAuth();
-    setToken(token);
+    dispatch(getToken());
   };
 
   const handleLogout = () => {
-    setToken(null);
+    dispatch(setToken());
   };
 
   return (
@@ -33,13 +43,17 @@ export default function Router() {
         <Routes>
           <Route index element={<Login onLogin={handleLogin} />} />
           <Route path="login" element={<Login onLogin={handleLogin} />} />
-          <Route path="home" element={<Home />} />
+          <Route path="home" element={protectRoute(<Home />)} />
           <Route path="*" element={<NoMatch />} />
         </Routes>
       </div>
     </BrowserRouter>
   );
 }
+
+const protectRoute = (component: React.ReactNode): React.ReactNode => {
+  return <ProtectedRoute>component</ProtectedRoute>;
+};
 
 const Navigation: React.FC<NavigationProps> = ({ token, onLogout }) => {
   return (
@@ -53,4 +67,16 @@ const Navigation: React.FC<NavigationProps> = ({ token, onLogout }) => {
       )}
     </nav>
   );
+};
+
+const ProtectedRoute: React.FC<any> = ({ children }) => {
+  const token = useSelector((state: RootState) => state.auth.token);
+
+  console.log(token);
+
+  if (!token) {
+    return <Navigate to="/Login" replace />;
+  }
+
+  return children;
 };

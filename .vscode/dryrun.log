@@ -1,0 +1,5 @@
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory `/Users/I565471/devel/stefano/projects/expense-manager-frontend'
+NODE_OPTIONS=--openssl-legacy-provider npm run start
+make: Leaving directory `/Users/I565471/devel/stefano/projects/expense-manager-frontend'
+ 
