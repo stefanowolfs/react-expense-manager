@@ -5,7 +5,7 @@ import { ThemeProvider } from "styled-components";
 import Router from "./routes";
 import reportWebVitals from "./reportWebVitals";
 import { store } from "./core/store/store";
-import { lightTheme } from "./styles/themes";
+import { darkTheme, lightTheme } from "./styles/themes";
 import GlobalStyle from "./styles/globalStyles";
 
 const root = ReactDOM.createRoot(
@@ -13,8 +13,8 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <GlobalStyle />
     <ThemeProvider theme={lightTheme}>
+      <GlobalStyle />
       <Provider store={store}>
         <Router />
       </Provider>
