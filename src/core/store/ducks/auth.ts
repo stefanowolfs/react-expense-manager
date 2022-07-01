@@ -1,38 +1,36 @@
-import { ReduxAction } from "../../../types/reduxAction";
+import { createSlice } from "@reduxjs/toolkit";
 
-export const GET_TOKEN = "GET_TOKEN";
-const SET_TOKEN = "SET_TOKEN";
+const GET_TOKEN = "auth/getToken";
+const SET_TOKEN = "auth/setToken";
 
-export type AuthState = {
+type AuthState = {
   token: string;
 };
-
-interface SetTokenPayload {
-  token: string;
-}
-
-export type GetTokenAction = () => void;
 
 const initialState: AuthState = {
   token: null,
 };
 
-export const getToken = () => ({
-  type: GET_TOKEN,
+export function getToken() {
+  return { type: GET_TOKEN };
+}
+
+export function setToken(token: string) {
+  return {
+    type: SET_TOKEN,
+    payload: token,
+  };
+}
+
+export const authSlice = createSlice({
+  name: "auth",
+  initialState,
+  reducers: {
+    getToken() {},
+    setToken(state, action) {
+      return { ...state, token: action.payload };
+    },
+  },
 });
 
-export const setToken = (
-  payload: SetTokenPayload
-): ReduxAction<SetTokenPayload> => ({
-  type: SET_TOKEN,
-  payload: payload,
-});
-
-export default (state: AuthState = initialState, action: any) => {
-  switch (action.type) {
-    case SET_TOKEN:
-      return { ...state, token: action.payload.token };
-    default:
-      return state;
-  }
-};
+export default authSlice.reducer;

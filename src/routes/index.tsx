@@ -10,11 +10,8 @@ import {
 import Login from "../pages/Login";
 import Home from "../pages/Home";
 import NoMatch from "../pages/NoMatch";
-
-import { fakeAuth } from "../infra/adapter/loginAPI";
-import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "../core/store/configureStore";
-import { getToken, setToken } from "../core/store/ducks/authSlice";
+import { getToken, setToken } from "../core/store/ducks/auth";
+import { useAppDispatch, useAppSelector } from "../core/store/hooks";
 
 interface NavigationProps {
   token: string;
@@ -22,15 +19,16 @@ interface NavigationProps {
 }
 
 export default function Router() {
-  const dispatch = useDispatch();
-  const token = useSelector((state: RootState) => state.auth.token);
+  const dispatch = useAppDispatch();
+  const token = useAppSelector((state) => state.auth.token);
 
   const handleLogin = async () => {
+    console.log("Login");
     dispatch(getToken());
   };
 
   const handleLogout = () => {
-    dispatch(setToken());
+    dispatch(setToken(null));
   };
 
   return (
@@ -70,7 +68,7 @@ const Navigation: React.FC<NavigationProps> = ({ token, onLogout }) => {
 };
 
 const ProtectedRoute: React.FC<any> = ({ children }) => {
-  const token = useSelector((state: RootState) => state.auth.token);
+  const token = useAppSelector((state) => state.auth.token);
 
   console.log(token);
 

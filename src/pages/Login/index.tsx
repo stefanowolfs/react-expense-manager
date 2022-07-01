@@ -7,7 +7,7 @@ interface PageProps {
 const Login: React.FC<PageProps> = ({ onLogin }) => {
   return (
     <>
-      <h2>Login</h2>;
+      <h2>Login</h2>
       <button type="button" onClick={onLogin}>
         Sign In
       </button>

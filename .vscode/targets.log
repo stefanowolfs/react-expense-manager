@@ -6,8 +6,11 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # PARTICULAR PURPOSE.
 
 # This program built for i386-apple-darwin11.3.0
+ 
+make: *** No rule to make target `all'.  Stop.
 
-# Make data base, printed on Mon Jun 27 11:29:42 2022
+
+# Make data base, printed on Fri Jul  1 11:31:18 2022
 
 # Variables
 
@@ -18,7 +21,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # environment
 VSCODE_LOG_NATIVE = false
 # environment
-NVM_INC = /Users/I565471/.nvm/versions/node/v17.8.0/include/node
+NVM_INC = /Users/I565471/.nvm/versions/node/v16.15.1/include/node
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
 # environment
@@ -48,11 +51,11 @@ P9K_SSH = 0
 # environment
 GVM_PATH_BACKUP = /Users/I565471/.gvm/bin:/Users/I565471/.sdkman/candidates/java/current/bin:/Users/I565471/.sdkman/candidates/gradle/current/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/go/bin:/Library/Apple/usr/bin:/Applications/Privileges.app/Contents/Resources:/Users/I565471/.fzf/bin:/Users/I565471/go/bin
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /var/folders/2h/jwgr0f2s2896bk5wlhwkhtvw0000gn/T/vscode-ipc-60259040-16d4-45f5-b94b-a06a44b3c82f.sock
+VSCODE_IPC_HOOK_EXTHOST = /var/folders/2h/jwgr0f2s2896bk5wlhwkhtvw0000gn/T/vscode-ipc-bf6dab30-7075-47fa-9580-77c6965686f7.sock
 # environment
 VSCODE_CWD = /
 # environment
-PATH = /Users/I565471/.pyenv/shims:/Users/I565471/.pyenv/bin:/Users/I565471/.nvm/versions/node/v17.8.0/bin:/Users/I565471/.gvm/bin:/Users/I565471/.sdkman/candidates/java/current/bin:/Users/I565471/.sdkman/candidates/gradle/current/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/go/bin:/Library/Apple/usr/bin:/Applications/Privileges.app/Contents/Resources:/Users/I565471/.fzf/bin:/Users/I565471/go/bin
+PATH = /Users/I565471/.pyenv/shims:/Users/I565471/.pyenv/bin:/Users/I565471/.nvm/versions/node/v16.15.1/bin:/Users/I565471/.gvm/bin:/Users/I565471/.sdkman/candidates/java/current/bin:/Users/I565471/.sdkman/candidates/gradle/current/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/go/bin:/Library/Apple/usr/bin:/Applications/Privileges.app/Contents/Resources:/Users/I565471/.fzf/bin:/Users/I565471/go/bin
 # environment
 LSCOLORS = Gxfxcxdxbxegedabagacad
 # environment
@@ -60,7 +63,7 @@ SDKMAN_DIR = /Users/I565471/.sdkman
 # environment
 SDKMAN_CANDIDATES_API = https://api.sdkman.io/2
 # environment
-NVM_BIN = /Users/I565471/.nvm/versions/node/v17.8.0/bin
+NVM_BIN = /Users/I565471/.nvm/versions/node/v16.15.1/bin
 # environment
 SDKMAN_PLATFORM = darwinx64
 # environment
@@ -72,7 +75,7 @@ PYENV_ROOT = /Users/I565471/.pyenv
 # default
 .FEATURES := target-specific order-only second-expansion else-if archives jobserver check-symlink
 # environment
-SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.d3fvJkrmoI/Listeners
+SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.yizYCAXvne/Listeners
 # automatic
 %F = $(notdir $%)
 # environment
@@ -176,7 +179,7 @@ MAKELEVEL := 0
 # environment
 LANG = C
 # environment
-VSCODE_PID = 13839
+VSCODE_PID = 44882
 # variable set hash-table stats:
 # Load=83/1024=8%, Rehash=0, Collisions=1/107=1%
 
@@ -186,9 +189,9 @@ VSCODE_PID = 13839
 
 # Directories
 
-# . (device 16777225, inode 15358630): 14 files, no impossibilities.
+# . (device 16777223, inode 15358630): 16 files, no impossibilities.
 
-# 14 files, no impossibilities in 1 directories.
+# 16 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -247,8 +250,6 @@ run-local:
 # strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
 # strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
 
-# Finished Make data base on Mon Jun 27 11:29:42 2022
+# Finished Make data base on Fri Jul  1 11:31:18 2022
 
  
-make: *** No rule to make target `all'.  Stop.
-

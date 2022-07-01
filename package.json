@@ -25,8 +25,8 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "react-scripts --openssl-legacy-provider start",
+    "build": "react-scripts --openssl-legacy-provider build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -58,6 +58,6 @@
     "@redux-devtools/core": "^3.13.1",
     "@types/react-redux": "^7.1.24",
     "@types/redux-saga": "^0.10.5",
-    "eslint": "^8.18.0"
+    "eslint": "5.12.0"
   }
 }
