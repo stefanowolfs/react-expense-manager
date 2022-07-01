@@ -23,7 +23,6 @@ export default function Router() {
   const token = useAppSelector((state) => state.auth.token);
 
   const handleLogin = async () => {
-    console.log("Login");
     dispatch(getToken());
   };
 
@@ -33,24 +32,21 @@ export default function Router() {
 
   return (
     <BrowserRouter>
-      <div>
-        <h1>React Router</h1>
-
-        <Navigation token={token} onLogout={handleLogout} />
-
+      <>
+        {token && <Navigation token={token} onLogout={handleLogout} />}
         <Routes>
           <Route index element={<Login onLogin={handleLogin} />} />
           <Route path="login" element={<Login onLogin={handleLogin} />} />
           <Route path="home" element={protectRoute(<Home />)} />
           <Route path="*" element={<NoMatch />} />
         </Routes>
-      </div>
+      </>
     </BrowserRouter>
   );
 }
 
 const protectRoute = (component: React.ReactNode): React.ReactNode => {
-  return <ProtectedRoute>component</ProtectedRoute>;
+  return <ProtectedRoute>{component}</ProtectedRoute>;
 };
 
 const Navigation: React.FC<NavigationProps> = ({ token, onLogout }) => {
@@ -69,12 +65,6 @@ const Navigation: React.FC<NavigationProps> = ({ token, onLogout }) => {
 
 const ProtectedRoute: React.FC<any> = ({ children }) => {
   const token = useAppSelector((state) => state.auth.token);
-
-  console.log(token);
-
-  if (!token) {
-    return <Navigate to="/Login" replace />;
-  }
-
+  if (!token) return <Navigate to="/Login" replace />;
   return children;
 };

@@ -1,19 +1,24 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { Provider } from "react-redux";
-
+import { ThemeProvider } from "styled-components";
 import Router from "./routes";
 import reportWebVitals from "./reportWebVitals";
 import { store } from "./core/store/store";
+import { lightTheme } from "./styles/themes";
+import GlobalStyle from "./styles/globalStyles";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <Provider store={store}>
-      <Router />
-    </Provider>
+    <GlobalStyle />
+    <ThemeProvider theme={lightTheme}>
+      <Provider store={store}>
+        <Router />
+      </Provider>
+    </ThemeProvider>
   </React.StrictMode>
 );
 
