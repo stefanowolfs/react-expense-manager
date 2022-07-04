@@ -1,20 +1,18 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import { logout } from "../../core/store/ducks/app";
+import { useAppDispatch } from "../../core/store/hooks";
 
-interface Props {
-  token: string;
-  onLogout: () => void;
-}
+const Header: React.FC = () => {
+  const dispatch = useAppDispatch();
 
-const Header: React.FC<Props> = ({ token, onLogout }) => {
   return (
     <nav>
       <NavLink to="/home">Home</NavLink>
-      {token && (
-        <button type="button" onClick={onLogout}>
-          Sign Out
-        </button>
-      )}
+      <NavLink to="/expenses">Expenses</NavLink>
+      <button type="button" onClick={() => dispatch(logout())}>
+        Sign Out
+      </button>
     </nav>
   );
 };

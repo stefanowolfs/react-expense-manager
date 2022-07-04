@@ -7,6 +7,7 @@ import NoMatch from "../pages/NoMatch";
 import { useAppDispatch, useAppSelector } from "../core/store/hooks";
 import { startApp } from "../core/store/ducks/app";
 import Layout from "../components/Layout";
+import Expenses from "../pages/Expenses";
 
 export default function Router() {
   const dispatch = useAppDispatch();
@@ -22,6 +23,7 @@ export default function Router() {
         <Route path="login" element={<Login />} />
         <Route path="/" element={protectRoute(<Layout />)}>
           <Route path="home" element={<Home />} />
+          <Route path="expenses" element={<Expenses />} />
         </Route>
         <Route path="*" element={<NoMatch />} />
       </Routes>
