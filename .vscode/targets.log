@@ -6,11 +6,8 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # PARTICULAR PURPOSE.
 
 # This program built for i386-apple-darwin11.3.0
- 
-make: *** No rule to make target `all'.  Stop.
 
-
-# Make data base, printed on Fri Jul  1 11:31:18 2022
+# Make data base, printed on Mon Jul  4 09:28:01 2022
 
 # Variables
 
@@ -51,7 +48,7 @@ P9K_SSH = 0
 # environment
 GVM_PATH_BACKUP = /Users/I565471/.gvm/bin:/Users/I565471/.sdkman/candidates/java/current/bin:/Users/I565471/.sdkman/candidates/gradle/current/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/go/bin:/Library/Apple/usr/bin:/Applications/Privileges.app/Contents/Resources:/Users/I565471/.fzf/bin:/Users/I565471/go/bin
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /var/folders/2h/jwgr0f2s2896bk5wlhwkhtvw0000gn/T/vscode-ipc-bf6dab30-7075-47fa-9580-77c6965686f7.sock
+VSCODE_IPC_HOOK_EXTHOST = /var/folders/2h/jwgr0f2s2896bk5wlhwkhtvw0000gn/T/vscode-ipc-46bb2879-7813-4161-8503-811408f5cbd0.sock
 # environment
 VSCODE_CWD = /
 # environment
@@ -250,6 +247,8 @@ run-local:
 # strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
 # strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
 
-# Finished Make data base on Fri Jul  1 11:31:18 2022
+# Finished Make data base on Mon Jul  4 09:28:01 2022
 
  
+make: *** No rule to make target `all'.  Stop.
+

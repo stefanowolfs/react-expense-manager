@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   BrowserRouter,
   Routes,
@@ -10,8 +10,9 @@ import {
 import Login from "../pages/Login";
 import Home from "../pages/Home";
 import NoMatch from "../pages/NoMatch";
-import { getToken, setToken } from "../core/store/ducks/auth";
+import { getToken } from "../core/store/ducks/auth";
 import { useAppDispatch, useAppSelector } from "../core/store/hooks";
+import { login, startApp } from "../core/store/ducks/app";
 
 interface NavigationProps {
   token: string;
@@ -22,12 +23,16 @@ export default function Router() {
   const dispatch = useAppDispatch();
   const token = useAppSelector((state) => state.auth.token);
 
+  useEffect(() => {
+    dispatch(startApp());
+  }, []);
+
   const handleLogin = async () => {
     dispatch(getToken());
   };
 
   const handleLogout = () => {
-    dispatch(setToken(null));
+    dispatch(login());
   };
 
   return (

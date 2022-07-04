@@ -7,6 +7,7 @@ export function* handleGetToken() {
   try {
     const token: string = yield call(fakeAuth);
     yield put(setToken(token));
+    localStorage.setItem("token", token);
   } catch (error) {
     console.log(error);
   }
