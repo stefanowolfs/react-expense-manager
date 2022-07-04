@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const INITIALIZE = "app/initialize";
+const START_APP = "app/startApp";
 const LOGIN = "app/login";
 const LOGOUT = "app/logout";
 
@@ -13,7 +13,7 @@ const initialState: State = {
 };
 
 export function startApp() {
-  return { type: INITIALIZE };
+  return { type: START_APP };
 }
 
 export function login() {
