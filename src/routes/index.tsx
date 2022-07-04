@@ -10,9 +10,8 @@ import {
 import Login from "../pages/Login";
 import Home from "../pages/Home";
 import NoMatch from "../pages/NoMatch";
-import { getToken } from "../core/store/ducks/auth";
 import { useAppDispatch, useAppSelector } from "../core/store/hooks";
-import { login, startApp } from "../core/store/ducks/app";
+import { logout, startApp } from "../core/store/ducks/app";
 
 interface NavigationProps {
   token: string;
@@ -27,21 +26,15 @@ export default function Router() {
     dispatch(startApp());
   }, []);
 
-  const handleLogin = async () => {
-    dispatch(getToken());
-  };
-
-  const handleLogout = () => {
-    dispatch(login());
-  };
-
   return (
     <BrowserRouter>
       <>
-        {token && <Navigation token={token} onLogout={handleLogout} />}
+        {token && (
+          <Navigation token={token} onLogout={() => dispatch(logout())} />
+        )}
         <Routes>
-          <Route index element={<Login onLogin={handleLogin} />} />
-          <Route path="login" element={<Login onLogin={handleLogin} />} />
+          <Route index element={<Login />} />
+          <Route path="login" element={<Login />} />
           <Route path="home" element={protectRoute(<Home />)} />
           <Route path="*" element={<NoMatch />} />
         </Routes>

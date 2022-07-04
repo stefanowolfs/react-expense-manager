@@ -1,5 +1,5 @@
 import { put } from "redux-saga/effects";
-import { setToken } from "../ducks/auth";
+import { getToken, setToken } from "../ducks/auth";
 
 export function* handleStartApp() {
   const storedToken = localStorage.getItem("token");
@@ -9,10 +9,7 @@ export function* handleStartApp() {
 }
 
 export function* handleLogin() {
-  const storedToken = localStorage.getItem("token");
-  if (!!storedToken) {
-    yield put(setToken(storedToken));
-  }
+  yield put(getToken());
 }
 
 export function* handleLogout() {
