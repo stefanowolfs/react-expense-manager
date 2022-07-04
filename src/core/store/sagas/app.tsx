@@ -1,4 +1,5 @@
 import { put } from "redux-saga/effects";
+import { setLoading } from "../ducks/app";
 import { getToken, setToken } from "../ducks/auth";
 
 export function* handleStartApp() {
@@ -10,6 +11,7 @@ export function* handleStartApp() {
 
 export function* handleLogin() {
   yield put(getToken());
+  yield put(setLoading(false));
 }
 
 export function* handleLogout() {
