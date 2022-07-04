@@ -1,27 +1,9 @@
 import React from "react";
-import { NavLink, Outlet } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import { logout } from "../../core/store/ducks/app";
 import { useAppDispatch, useAppSelector } from "../../core/store/hooks";
+import Header from "../Header";
 import { Container, Content } from "./styles";
-
-interface NavigationProps {
-  token: string;
-  onLogout: () => void;
-}
-
-const Navigation: React.FC<NavigationProps> = ({ token, onLogout }) => {
-  return (
-    <nav>
-      <NavLink to="/home">Home</NavLink>
-      <NavLink to="/login">Login</NavLink>
-      {token && (
-        <button type="button" onClick={onLogout}>
-          Sign Out
-        </button>
-      )}
-    </nav>
-  );
-};
 
 function Layout() {
   const dispatch = useAppDispatch();
@@ -29,7 +11,7 @@ function Layout() {
 
   return (
     <Container>
-      <Navigation token={token} onLogout={() => dispatch(logout())} />
+      <Header token={token} onLogout={() => dispatch(logout())} />
       <Content>
         <Outlet />
       </Content>
