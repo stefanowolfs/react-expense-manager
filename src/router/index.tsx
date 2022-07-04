@@ -35,6 +35,6 @@ const protectRoute = (component: React.ReactNode): React.ReactNode => {
 
 const ProtectedRoute: React.FC<any> = ({ children }) => {
   const token = useAppSelector((state) => state.auth.token);
-  if (!token) return <Navigate to="/Login" replace />;
+  if (!token) return <Navigate to="/login" replace />;
   return children;
 };
