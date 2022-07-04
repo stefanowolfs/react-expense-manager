@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { login } from "../../core/store/ducks/app";
 import { useAppDispatch, useAppSelector } from "../../core/store/hooks";
-import { Container } from "./styles";
+import { Container, Content } from "./styles";
 
 interface PageProps {}
 
@@ -17,10 +17,12 @@ const Login: React.FC<PageProps> = () => {
 
   return (
     <Container>
-      <h2>Login</h2>
-      <button type="button" onClick={() => dispatch(login())}>
-        Sign In
-      </button>
+      <Content>
+        <h2>Login</h2>
+        <button type="button" onClick={() => dispatch(login())}>
+          Sign In
+        </button>
+      </Content>
     </Container>
   );
 };

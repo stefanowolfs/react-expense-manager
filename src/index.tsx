@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { Provider } from "react-redux";
 import { ThemeProvider } from "styled-components";
-import Router from "./routes";
+import Router from "./router";
 import reportWebVitals from "./reportWebVitals";
 import { store } from "./core/store/store";
 import { darkTheme } from "./styles/themes";
