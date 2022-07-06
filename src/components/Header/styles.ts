@@ -1,11 +1,20 @@
 import styled from "styled-components";
 import { NavLink, NavLinkProps } from "react-router-dom";
-import { Typography } from "@mui/material";
+import { Toolbar as BaseToolbar, Typography } from "@mui/material";
 import Colors from "../../styles/colors";
 
 interface LinkProps {
   active?: boolean;
 }
+
+export const Toolbar = styled(BaseToolbar)`
+  background: rgb(12, 93, 196);
+  background: linear-gradient(
+    90deg,
+    ${(props) => props.theme.palette.gradientBackground.color1} 0%,
+    ${(props) => props.theme.palette.gradientBackground.color2} 100%
+  );
+`;
 
 export const LinkContainer = styled.div`
   flex: 1;

@@ -1,9 +1,9 @@
-import { AppBar, CssBaseline, Toolbar } from "@mui/material";
+import { AppBar, CssBaseline } from "@mui/material";
 import React, { useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { logout } from "../../core/store/ducks/app";
 import { useAppDispatch } from "../../core/store/hooks";
-import { Link, LinkContainer, Title } from "./styles";
+import { Link, LinkContainer, Title, Toolbar } from "./styles";
 
 const Header: React.FC = () => {
   const dispatch = useAppDispatch();
