@@ -2,19 +2,27 @@ import styled from "styled-components";
 import Colors from "../../styles/colors";
 
 export const Container = styled.div`
-  min-width: 100px;
-  min-height: 300px;
-  max-width: 500px;
   margin: auto;
-  margin-bottom: 100px;
-  margin-top: 100px;
-  padding: 10px;
-  border-radius: 12px;
+  margin-bottom: 0px;
+  margin-top: 0px;
 
+  flex: 1;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: row;
+  flex-wrap: wrap;
 
   background: ${Colors.white};
+`;
+
+export const GraphContainer = styled.div`
+  margin: 0;
+  margin-top: 100px;
+`;
+
+export const DashboardContainer = styled.div`
+  margin: 0;
+  margin-top: 100px;
+  flex: 1;
 `;
