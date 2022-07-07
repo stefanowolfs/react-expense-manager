@@ -3,7 +3,7 @@ import React, { useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { logout } from "../../core/store/ducks/app";
 import { useAppDispatch } from "../../core/store/hooks";
-import { Link, LinkContainer, Title, Toolbar } from "./styles";
+import { Container, Link, LinkContainer, Title, Toolbar } from "./styles";
 
 const Header: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -15,25 +15,33 @@ const Header: React.FC = () => {
   }, [location]);
 
   return (
-    <AppBar position="static">
-      <CssBaseline />
-      <Toolbar>
-        <Title variant="h4" onClick={() => navigate("/home")}>
-          Expense Manager
-        </Title>
-        <LinkContainer>
-          <Link to="/home" active={location.pathname.includes("home")}>
-            Home
-          </Link>
-          <Link to="/expenses" active={location.pathname.includes("expenses")}>
-            Expenses
-          </Link>
-        </LinkContainer>
-        <button type="button" onClick={() => dispatch(logout())}>
-          Sign Out
-        </button>
-      </Toolbar>
-    </AppBar>
+    <Container>
+      <AppBar position="static">
+        <CssBaseline />
+        <Toolbar>
+          <Title variant="h4" onClick={() => navigate("/home")}>
+            Expense Manager
+          </Title>
+          <LinkContainer>
+            <Link
+              to="/home"
+              active={location.pathname.includes("home").toString()}
+            >
+              Home
+            </Link>
+            <Link
+              to="/expenses"
+              active={location.pathname.includes("expenses").toString()}
+            >
+              Expenses
+            </Link>
+          </LinkContainer>
+          <button type="button" onClick={() => dispatch(logout())}>
+            Sign Out
+          </button>
+        </Toolbar>
+      </AppBar>
+    </Container>
   );
 };
 

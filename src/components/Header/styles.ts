@@ -4,8 +4,12 @@ import { Toolbar as BaseToolbar, Typography } from "@mui/material";
 import Colors from "../../styles/colors";
 
 interface LinkProps {
-  active?: boolean;
+  active?: string;
 }
+
+export const Container = styled.div`
+  margin-bottom: 10px;
+`;
 
 export const Toolbar = styled(BaseToolbar)`
   background: rgb(12, 93, 196);
@@ -34,7 +38,7 @@ export const Link = styled<
   margin-top: 0px;
   margin-bottom: 0px;
   text-decoration: none;
-  color: ${({ active }) => (active === true ? Colors.black : Colors.white)};
+  color: ${({ active }) => (active === "true" ? Colors.black : Colors.white)};
   font-size: 20px;
   margin-left: 20px;
   hover: {
