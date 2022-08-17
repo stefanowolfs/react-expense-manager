@@ -8,6 +8,7 @@ import { store } from "./core/store/store";
 import { darkTheme } from "./styles/themes";
 import GlobalStyle from "./styles/globalStyles";
 import { startMockAPI } from "./tests/mockAPI";
+import "./infra/locales";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
