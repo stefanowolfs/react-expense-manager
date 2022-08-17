@@ -47,29 +47,65 @@ export function startMockAPI() {
         };
       });
 
-      this.get("/expense-groups/:id/activities", (schema, request) => {
-        const id = request.params.id;
-        const activitiesMock = [
+      this.get("/expenses/statement", (schema, request) => {
+        const month = request.queryParams.month;
+        const mock = [
           {
-            id: 21343252,
+            id: 12345123,
             expenseGroupId: 1,
             description: "Abastecer",
             billingDate: new Date(),
-            cost: 200.0,
+            cost: 100.0,
           },
           {
-            id: 23532423,
+            id: 123451221,
+            expenseGroupId: 1,
+            description: "Abastecer",
+            billingDate: new Date(),
+            cost: 100.0,
+          },
+          {
+            id: 21421351,
             expenseGroupId: 1,
             description: "Revisão",
             billingDate: new Date(),
             cost: 1850.6,
           },
           {
-            id: 3,
+            id: 432324,
             expenseGroupId: 2,
             description: "Consulta",
             billingDate: new Date(),
             cost: 350.0,
+          },
+        ];
+        return { mock };
+      });
+
+      this.get("/expense-groups/:id/activities", (schema, request) => {
+        const id = request.params.id;
+        const month = request.queryParams.month;
+        const activitiesMock = [
+          {
+            id: 21343252,
+            expenseGroupId: 1,
+            description: "Abastecer",
+            month: month,
+            totalCost: 200.0,
+          },
+          {
+            id: 23532423,
+            expenseGroupId: 1,
+            description: "Revisão",
+            billingDate: month,
+            totalCost: 1850.6,
+          },
+          {
+            id: 3,
+            expenseGroupId: 2,
+            description: "Consulta",
+            billingDate: month,
+            totalCost: 350.0,
           },
         ];
         const activities = activitiesMock.filter(
