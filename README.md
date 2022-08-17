@@ -112,6 +112,8 @@ Right above is a diagram showing how the project is designed. We have some main 
 - **Side Effects:** redux-saga (could be replaced by ContextAPI)
 - **Style:** styled-components + material-ui
 - **HTTP Client:** axios
+- **Localization:** i18next
+- **Testing:** Jest
 
 Disclaimer: As of now jul-06-2022, with the React version 17 and react-router-dom v6, there isn't a safe way to access `history` inside redux in order to navigate throughout the middle of an async saga/thunk like we used to do in older versions of this lib, so if you need to make this kind of actions I suggest replacing this state management with `ContextAPI`, because then you will be able to call `getNavigate` hook.
 
