@@ -7,7 +7,7 @@ function Home() {
 
   return (
     <Container>
-      <p>{t("hello")}</p>
+      <h1>{t("hello")}</h1>
     </Container>
   );
 }
